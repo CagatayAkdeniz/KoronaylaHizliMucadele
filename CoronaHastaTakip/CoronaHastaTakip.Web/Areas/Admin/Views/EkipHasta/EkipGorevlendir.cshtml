@@ -1,0 +1,67 @@
+﻿@model HastaListViewModel
+@{
+    ViewData["Title"] = "EkipGorevledir";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <div class="row mt-2 ml-2">
+        <div class="col-md-4">
+            <div class="card border border-primary shadow">
+                <h4 class="text-center lead pt-2" style="font:bold"><h1 class="text-center" style="color:green">Hasta Bilgileri</h1></h4>
+                <div class="card-body pl-3">
+                    <h4 class="text-center" style="color:black">Kimlik No: @Model.KimlikNo</h4>
+                    <br />
+                    <strong style="color:blue">Ad Soyad: </strong> <small style="font-size:large;color:black">@Model.AdSoyad</small>
+                    <br />
+                    <br />
+                    <strong style="color:blue">Yaş: </strong> <small style="font-size:large;color:black">@Model.Yas</small>
+                    <br />
+                    <br />
+                    <p class="card-text" style="color:black;font-size:large">@Model.Aciklama</p>
+                    <p class="card-text">
+                        <strong style="color:blue">Aciliyet Durumu: </strong> <span class="badge badge-danger" style="font-size:large">@Model.Aciliyet.Tanim</span>
+                    </p>
+                    <strong style="color:blue">Test Tarihi: </strong> <small style="font-size:large;color:black">@Model.TestTarihi.ToString("D")</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            @foreach (var item in (List<AppUserListViewModel>)ViewBag.Ekipler)
+            {
+                <div class="card border border-primary mb-3 p-2 mr-2">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="~/Assets/img/Team.png" class="card-img img-thumbnail shadow" style="height:15rem!important" alt="@item.Name">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title text-center" style="color:black;font-size:x-large">@item.UserName</h5>
+                                <p class="card-text">
+                                    <strong style="color:blue">Ekip Sorumlusu: </strong> <small style="font-size:large;color:black">@item.Name @item.Surname</small>
+                                </p>
+                                <p class="card-text">
+                                    <strong style="color:red"><UserIdHastaGetir app-user-id="@item.Id"></UserIdHastaGetir></strong>
+                                </p>
+                                <p class="card-text">
+                                    <strong style="color:blue">E-mail: </strong> <small style="font-size:large;color:black">@item.Email</small>
+                                    <a asp-action="GoreviOnayla" asp-route-hastaId="@Model.Id" asp-route-userId="@item.Id"
+                                       class="float-right btn" style="background-color:lawngreen;color:black">Görevlendir</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <nav aria-label="Page navigation example" class="float-left mt-2">
+                <ul class="pagination p-2">
+                    @for (int i = 1; i <= ViewBag.ToplamSayfa; i++)
+                    {
+                        <li class="page-item @(ViewBag.AktifSayfa == i ? "active" : "")">
+                            <a class="page-link" asp-action="EkipGorevlendir" asp-route-aktifSayfa="@i">@i</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+

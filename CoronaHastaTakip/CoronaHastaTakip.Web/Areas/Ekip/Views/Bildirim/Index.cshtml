@@ -1,0 +1,35 @@
+﻿@model List<BildirimListViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Ekip/Views/Shared/_EkipLayout.cshtml";
+}
+
+<div class="row">
+    <div class="text-center text-danger font-weight-bold col-md-12">
+        <h1 style="color:red">Okunmamış Bildirimler</h1>
+    </div>
+</div>
+@if (Model.Count > 0)
+{
+    @foreach (var bildirim in Model)
+    {
+        <div class="alert alert-info mx-3 my-2">
+
+
+            <form asp-action="BildirimOkundu" method="post" asp-route-id="@bildirim.Id">
+                <p class="lead" style="color:black;font-size:larger">
+
+                    @bildirim.Mesaj
+                    <button type="submit" class="btn btn-primary float-right">Okundu</button>
+                </p>
+            </form>
+        </div>
+    }
+}
+else
+{
+    <p class="lead">
+        <h4 class="text-center p-4" style="color:black">Okunmamış bildiriminiz bulunmamaktadır.</h4>
+    </p>
+}
+

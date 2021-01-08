@@ -1,0 +1,85 @@
+﻿@model List<HastaListAllViewModel>
+@{
+    ViewData["Title"] = "IyilesenHasta";
+    Layout = "~/Areas/Ekip/Views/Shared/_EkipLayout.cshtml";
+    int index = 0;
+}
+@if (Model.Count > 0)
+{
+    <div class="row">
+        <div class="text-center text-danger font-weight-bold col-md-12 my-3">
+            <h2>İyileştirilen Hastalar</h2>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var hasta in Model)
+        {
+            index++;
+            <div class="col-md-4">
+                <div class="card p-2 ml-2">
+                    <div class="card-header text-white bg-success">
+                        <h3 style="color:black">Kimlik No: @hasta.KimlikNo</h3>
+                    </div>
+                    <div class="card-body">
+                        <strong style="color:blue">Ad Soyad: </strong> <small style="font-size:large;color:black">@hasta.AdSoyad</small>
+                        <br />
+                        <br />
+                        <strong style="color:blue">Yaş: </strong> <small style="font-size:large;color:black">@hasta.Yas</small>
+                        <br />
+                        <br />
+                        <p class="card-text" style="color:black;font-size:large">@hasta.Aciklama</p>
+                        <p class="card-text">
+                            <strong style="color:blue">Aciliyet Durumu: </strong> <span class="badge badge-danger" style="font-size:large">@hasta.Aciliyet.Tanim</span>
+                        </p>
+                        <strong style="color:blue">Test Tarihi: </strong> <small style="font-size:large;color:black">@hasta.TestTarihi.ToString("D")</small>
+                        <p class="text-right">
+           
+                                <a class="btn btn-light btn-sm" data-toggle="collapse" style="background-color:cornflowerblue" href="#collapseExample-@index" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    Raporlara Git
+                                    <span class="badge badge-dark" style="color:black;background-color:mediumpurple">@hasta.Raporlar.Count</span>
+                                </a>
+            
+
+
+                        </p>
+                        <div class="collapse" id="collapseExample-@index">
+                            <table class="table table-bordered table-hover table-sm">
+                                <tr>
+                                    <th style="color:black">Tanım</th>
+                                    <th style="color:black">Detay</th>
+                                </tr>
+                                @foreach (var rapor in hasta.Raporlar)
+                                {
+                                    <tr>
+                                        <td style="color:black">@rapor.Tanim</td>
+                                        <td style="color:black">@rapor.Detay</td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <nav aria-label="Page navigation example" class="float-left mt-2">
+        <ul class="pagination p-2">
+            @for (int i = 1; i <= ViewBag.ToplamSayfa; i++)
+            {
+                <li class="page-item @(ViewBag.AktifSayfa == i ? "active" : "")">
+                    <a class="page-link" asp-action="IyilesenHasta" asp-route-aktifSayfa="@i">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+else
+{
+    <div class="text-center lead mt-4">
+        <p>
+            <h3 style="color:black">İyileştirdiğiniz Hastanız bulunamadı.</h3>
+        </p>
+    </div>
+}
+
+

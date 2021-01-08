@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Ekip/Views/Shared/_EkipLayout.cshtml";
+}
+
+    <div class="row">
+        <div class="col-md-6 mt-2">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Okunmamış Bildirim Sayısı</h4>
+                    <p class="card-text text-center display-4 text-danger">@ViewBag.OkunmayanBildirimSayisi</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-2">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Aktif Hasta Sayısı</h4>
+                    <p class="card-text text-center display-4 text-danger">@ViewBag.AktifHastaSayisi</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-2">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body">
+                    <h4 class="card-title text-center">İyileştirilen Hasta Sayısı</h4>
+                    <p class="card-text text-center display-4 text-danger">@ViewBag.İyilesenHastaSayisi</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-2">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Rapor Sayısı</h4>
+                    <p class="card-text text-center display-4 text-danger">@ViewBag.RaporSayisi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,33 @@
+﻿@model HastaListAllViewModel
+@{
+    ViewData["Title"] = "Detay";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (Model.Raporlar.Count > 0)
+{
+    <a asp-action="GetirExcel" asp-route-id="@Model.Id" target="_blank" class="btn btn-info mt-2 ml-2"><i class="fas fa-file-excel mr-2"></i>Excel İndir</a>
+    <a asp-action="GetirPdf" asp-route-id="@Model.Id" target="_blank" class="btn btn-info mt-2 ml-2"><i class="fas fa-file-pdf mr-2"></i>Pdf İndir</a>
+
+    <table class="table table-bordered table-hover mt-3 text-center">
+
+        <tr class="mt-2">
+            <th><h5 style="color:orangered"><b>Tanim</b></h5></th>
+            <th><h5 style="color:orangered"><b>Detay</b></h5></th>
+        </tr>
+        @foreach (var rapor in Model.Raporlar)
+        {
+            <tr>
+                <td><h6 style="color:black">@rapor.Tanim</h6></td>
+                <td><h6 style="color:black">@rapor.Detay</h6></td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <div class="border border-dark mt-3 text-center">
+        <h4 style="color:black">@Model.AppUser.UserName ekibi tedaviye devam ediyor. Henüz bir rapor yazmamıştır.</h4>
+    </div>
+}
+

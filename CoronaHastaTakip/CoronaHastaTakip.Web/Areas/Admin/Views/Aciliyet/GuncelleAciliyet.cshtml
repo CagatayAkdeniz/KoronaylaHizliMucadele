@@ -1,0 +1,21 @@
+﻿@model AciliyetUpdateViewModel
+@{
+    ViewData["Title"] = "GuncelleAciliyet";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="w-75 mx-auto p-3 mt-4 shadow" asp-action="GuncelleAciliyet" method="post">
+    <div class="row">
+        <div class="text-center text-danger font-weight-bold col-md-12">
+            <h3>Aciliyeti Düzenle</h3>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="hidden" asp-for="@Model.Id" />
+        <label><h4>Tanım :</h4></label>
+        <span asp-validation-for="@Model.Tanim" class="text-danger ml-2" style="font-size: 110%"></span>
+        <input asp-for="@Model.Tanim" type="text" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-info">Kaydet</button>
+</form>
+

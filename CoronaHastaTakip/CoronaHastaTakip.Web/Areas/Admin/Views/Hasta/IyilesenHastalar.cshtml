@@ -1,0 +1,72 @@
+﻿@model List<HastaListAllViewModel>
+@{
+    ViewData["Title"] = "IyilesenHasta";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int index = 0;
+}
+@if (Model.Count > 0)
+{
+    <div class="row">
+        <div class="text-center text-danger font-weight-bold col-md-12 my-3">
+            <h3>İyileştirilen Hastalar</h3>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var hasta in Model)
+        {
+            index++;
+            <div class="col-md-4">
+                <div class="card p-2 ml-2">
+                    <div class="card-header text-white bg-success">
+                        <h3 style="color:black">Kimlik No: @hasta.KimlikNo</h3>
+                    </div>
+                    <div class="card-body">
+                        <strong style="color:blue">Ad Soyad: </strong> <small style="font-size:large;color:black">@hasta.AdSoyad</small>
+                        <br />
+                        <br />
+                        <strong style="color:blue">Yaş: </strong> <small style="font-size:large;color:black">@hasta.Yas</small>
+                        <br />
+                        <br />
+                        <p class="card-text" style="color:black;font-size:large">@hasta.Aciklama</p>
+                        <p class="card-text">
+                            <strong style="color:blue">Aciliyet Durumu: </strong> <span class="badge badge-danger" style="font-size:large">@hasta.Aciliyet.Tanim</span>
+                        </p>
+                        <strong style="color:blue">Test Tarihi: </strong> <small style="font-size:large;color:black">@hasta.TestTarihi.ToString("D")</small>
+                        <br />
+                        <br />
+                        <strong style="color:blue">İyileştiren Ekip: </strong> <small class="badge badge-success" style="font-size:large;color:black">@hasta.AppUser.UserName</small>
+                        <br />
+                        <br />
+                        <p class="text-right">
+
+                            <a class="btn btn-light btn-sm" asp-controller="EkipHasta" asp-action="Detay" asp-route-id="@hasta.Id" style="background-color:cornflowerblue">
+                                Raporlara Git
+                                <span class="badge badge-dark" style="color:black;background-color:mediumpurple">@hasta.Raporlar.Count</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <nav aria-label="Page navigation example" class="float-left mt-2">
+        <ul class="pagination p-2">
+            @for (int i = 1; i <= ViewBag.ToplamSayfa; i++)
+            {
+                <li class="page-item @(ViewBag.AktifSayfa == i ? "active" : "")">
+                    <a class="page-link" asp-action="IyilesenHastalar" asp-route-aktifSayfa="@i">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+else
+{
+    <div class="text-center lead mt-4">
+        <p>
+            <h3 style="color:black">İyileştirilen Hasta bulunamadı.</h3>
+        </p>
+    </div>
+}
+
+

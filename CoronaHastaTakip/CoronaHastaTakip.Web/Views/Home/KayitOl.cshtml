@@ -1,0 +1,64 @@
+﻿@model UserSignUpViewModel
+@{
+    ViewData["Title"] = "KayitOl";
+    Layout = "~/Views/Shared/_StandartLayout.cshtml";
+}
+
+<body class="bg-primary">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h1 class="text-center font-weight-light my-4">Kayıt Ol</h1></div>
+                                <div class="card-body">
+                                    <form asp-action="KayitOl" method="post">
+                                        <div class="form-group">
+                                            <label>Ekip Adı :</label>
+                                            <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+                                            <input asp-for="@Model.UserName" type="text" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Şifre :</label>
+                                            <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                                            <input asp-for="@Model.Password" type="password" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Şifre Tekrar :</label>
+                                            <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+                                            <input asp-for="@Model.ConfirmPassword" type="password" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>E-mail :</label>
+                                            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                                            <input asp-for="@Model.Email" type="text" class="form-control" />
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <label>Ekip Başkanının Adı :</label>
+                                                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+                                                <input asp-for="@Model.Name" type="text" class="form-control" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Ekip Başkanının Soyadı :</label>
+                                                <span asp-validation-for="@Model.Surname" class="text-danger"></span>
+                                                <input asp-for="@Model.Surname" type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <a asp-action="Index" class="btn btn-warning">Vazgeç</a>
+                                        <button class="btn btn-primary" type="submit">Kayıt Ol</button>
+                                        <div asp-validation-summary="ModelOnly" class="mt-3 text-danger"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    </body>
+

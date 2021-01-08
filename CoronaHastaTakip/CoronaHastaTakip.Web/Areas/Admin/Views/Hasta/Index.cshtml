@@ -1,0 +1,69 @@
+﻿@model List<HastaListViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (Model.Count > 0)
+{
+    <div class="row">
+        <div class="text-center text-danger font-weight-bold col-md-12 my-3">
+            <h1>Hasta Listesi</h1>
+        </div>
+    </div>
+    <table class="table table-hover table-bordered">
+        <thead class="text-center" style="color:black">
+            <tr>
+                <th><h4><b>Ad Soyad</b></h4></th>
+                <th><h4><b>Kimlik No</b></h4></th>
+                <th><h4><b>Yaş</b></h4></th>
+                <th><h4><b>Açıklama</b></h4></th>
+                <th><h4><b>Aciliyet</b></h4></th>
+                <th><h4><b>Test Tarihi</b></h4></th>
+                <th><h4><b>İşlem</b></h4></th>
+            </tr>
+        </thead>
+        <tbody class="text-center" style="background-color:white">
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td><h6 style="color:black">@item.AdSoyad</h6></td>
+                <td><h6 style="color:black">@item.KimlikNo</h6></td>
+                <td><h6 style="color:black">@item.Yas</h6></td>
+                <td><h6 style="color:black">@item.Aciklama</h6></td>
+                <td>
+                    @if (item.Aciliyet.Tanim == "Çok Hafif" || item.Aciliyet.Tanim == "Hafif")
+                    {
+                        <span class="badge badge-warning"><h6>@item.Aciliyet.Tanim</h6></span>
+                    }
+                    else if (item.Aciliyet.Tanim == "Normal")
+                    {
+                        <span class="badge badge-warning"><h6>@item.Aciliyet.Tanim</h6></span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger"><h6>@item.Aciliyet.Tanim</h6></span>
+                    }
+                </td>
+                <td><h6 style="color:black">@item.TestTarihi.ToString("D")</h6></td>
+                <td>
+                    <a asp-action="GuncelleHasta" asp-controller="Hasta" asp-route-id="@item.Id"
+                       class="btn btn-warning btn-sm" style="background-color:orange;color:black"><h6>Düzenle</h6></a>
+                    <a asp-action="SilHasta" asp-controller="Hasta" asp-route-id="@item.Id" onclick="return confirm('Silmek İstediğinizden Emin Misiniz ?')"
+                       class="btn text-center btn-sm" style="background-color:red;color:black"><h6>Sil</h6></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="text-center lead mt-4">
+        <p>
+            <h3 style="color:black">Sistemde kayıtlı Hasta bulunamadı.</h3>
+        </p>
+        <a asp-action="EkleHasta" asp-controller="Hasta" class="btn btn-sm btn-primary my-2">Yeni Hasta Ekle</a>
+    </div>
+}
+

@@ -1,0 +1,43 @@
+﻿@model RaporAddViewModel
+@{
+    ViewData["Title"] = "EkleRapor";
+    Layout = "~/Areas/Ekip/Views/Shared/_EkipLayout.cshtml";
+}
+
+<div class="card mt-3 p-3 ml-3 mr-3">
+    <div class="card-header" style="background-color:yellow;color:blue"><h4>@Model.Hasta.KimlikNo</h4></div>
+    <div class="card-body" style="background-color:yellow">
+        <h5 class="card-title" style="color:red"><span>Aciliyet Durumu: </span>@Model.Hasta.Aciliyet.Tanim</h5>
+        <p class="card-text" style="color:black">@Model.Hasta.Aciklama</p>
+    </div>
+</div>
+
+<form method="post" asp-action="EkleRapor" class="w-75 mx-auto p-3 shadow mt-2">
+    <div class="row">
+        <div class="text-center text-danger font-weight-bold col-md-12">
+            <h3>Rapor Ekle</h3>
+        </div>
+    </div>
+    <input type="hidden" asp-for="@Model.HastaId" />
+    <div class="form-group">
+        <label style="color:black">Tanım: </label>
+        <span asp-validation-for="@Model.Tanim" class="text-danger"></span>
+        <input asp-for="@Model.Tanim" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label style="color:black">Detay: </label>
+        <span asp-validation-for="@Model.Detay" class="text-danger"></span>
+        <textarea asp-for="@Model.Detay" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <a asp-action="Index" class="btn btn-warning">Vazgeç</a>
+        <button type="submit" class="btn btn-info">Kaydet</button>
+    </div>
+</form>
+
+@section JavaScript
+{
+    <script src="~/lib/jqueryValidate/jquery.validate.min.js"></script>
+    <script src="~/lib/jqueryUnob/jquery.validate.unobtrusive.min.js"></script>
+}
+

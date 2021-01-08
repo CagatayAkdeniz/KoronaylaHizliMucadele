@@ -1,0 +1,41 @@
+﻿@model EkipUpdateViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Ekip/Views/Shared/_EkipLayout.cshtml";
+}
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        @TempData["message"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<form class="w-75 mx-auto p-3 mt-4 shadow" asp-action="Index" method="post">
+    <div class="row">
+        <div class="text-center text-danger font-weight-bold col-md-12">
+            <h3 style="color:red">Ekip Bilgileri Güncelle</h3>
+        </div>
+    </div>
+    <input type="hidden" asp-for="@Model.Id" />
+    <div class="form-group">
+        <label style="color:black">Ekip Başkanının Adı :</label>
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        <input type="text" asp-for="@Model.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label style="color:black">Ekip Başkanının Soyadı :</label>
+        <span asp-validation-for="@Model.Surname" class="text-danger"></span>
+        <input type="text" asp-for="@Model.Surname" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label style="color:black">E-mail :</label>
+        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+        <input type="text" asp-for="@Model.Email" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-info btn-primary">Kaydet</button>
+</form>
+

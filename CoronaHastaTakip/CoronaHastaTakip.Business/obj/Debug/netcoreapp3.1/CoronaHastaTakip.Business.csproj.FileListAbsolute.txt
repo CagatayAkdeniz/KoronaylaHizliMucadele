@@ -1,0 +1,14 @@
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\obj\Debug\netcoreapp3.1\CoronaHastaTakip.Business.csprojAssemblyReference.cache
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\obj\Debug\netcoreapp3.1\CoronaHastaTakip.Business.AssemblyInfoInputs.cache
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\obj\Debug\netcoreapp3.1\CoronaHastaTakip.Business.AssemblyInfo.cs
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\bin\Debug\netcoreapp3.1\CoronaHastaTakip.Business.deps.json
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\bin\Debug\netcoreapp3.1\CoronaHastaTakip.Business.dll
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\bin\Debug\netcoreapp3.1\CoronaHastaTakip.Business.pdb
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\bin\Debug\netcoreapp3.1\CoronaHastaTakip.DataAccess.dll
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\bin\Debug\netcoreapp3.1\CoronaHastaTakip.Entities.dll
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\bin\Debug\netcoreapp3.1\CoronaHastaTakip.DataAccess.pdb
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\bin\Debug\netcoreapp3.1\CoronaHastaTakip.Entities.pdb
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\obj\Debug\netcoreapp3.1\CoronaHastaTakip.Business.csproj.CopyComplete
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\obj\Debug\netcoreapp3.1\CoronaHastaTakip.Business.dll
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\obj\Debug\netcoreapp3.1\CoronaHastaTakip.Business.pdb
+C:\Users\User\Documents\C#Projects\CoronaHastaTakip\CoronaHastaTakip.Business\obj\Debug\netcoreapp3.1\CoronaHastaTakip.Business.csproj.CoreCompileInputs.cache

@@ -1,0 +1,48 @@
+﻿@model HastaAddViewModel
+@{
+    ViewData["Title"] = "EkleHasta";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="w-75 mx-auto p-3 mt-4 shadow" asp-action="EkleHasta" method="post">
+    <div class="row">
+        <div class="text-center text-danger font-weight-bold col-md-12">
+            <h3>Hasta Ekle</h3>
+        </div>
+    </div>
+    <div class="form-group">
+        <label style="color:black">Ad Soyad :</label>
+        <span asp-validation-for="@Model.AdSoyad" class="text-danger ml-2" style="font-size: 110%"></span>
+        <input asp-for="@Model.AdSoyad" type="text" class="form-control style=" font-size: 110%"" />
+    </div>
+    <div class="form-group">
+        <label style="color:black">Kimlik Numarası :</label>
+        <span asp-validation-for="@Model.KimlikNo" class="text-danger ml-2" style="font-size: 110%"></span>
+        <input asp-for="@Model.KimlikNo" type="text" class="form-control style=" font-size: 110%"" />
+    </div>
+    <div class="form-group">
+        <label style="color:black">Doğum Tarihi :</label>
+        <span asp-validation-for="@Model.DogumTarihi" class="text-danger ml-2" style="font-size: 110%"></span>
+        <input asp-for="@Model.DogumTarihi" type="date" class="form-control style=" font-size: 110%"" />
+    </div>
+    <div class="form-group">
+        <label style="color:black">Açıklama :</label>
+        <span asp-validation-for="@Model.Aciklama" class="text-danger" style="font-size: 110%"></span>
+        <textarea asp-for="@Model.Aciklama" class="form-control" style="font-size: 110%"></textarea>
+    </div>
+    <div class="form-group">
+        <label style="color:black" l>Aciliyet Durumu Seçiniz :</label>
+        <span asp-validation-for="@Model.AciliyetId" class="text-danger"></span>
+        <select asp-for="@Model.AciliyetId" class="form-control" asp-items="ViewBag.Aciliyetler">
+            <option hidden value="-1">Seçiniz</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-info">Kaydet</button>
+</form>
+
+@section JavaScript
+{
+    <script src="~/lib/jqueryValidate/jquery.validate.min.js"></script>
+    <script src="~/lib/jqueryUnob/jquery.validate.unobtrusive.min.js"></script>
+}
+
